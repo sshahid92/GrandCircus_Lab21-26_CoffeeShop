@@ -1,4 +1,5 @@
-﻿using System;
+﻿using GrandCircus_Lab21_26_CoffeeShop.Models;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -14,9 +15,25 @@ namespace GrandCircus_Lab21_26_CoffeeShop.Controllers
             return View();
         }
 
-        public ActionResult RegistrationComplete()
+        [HttpPost]
+        public ActionResult Index(string firstname, string lastname, string email,
+            string phoneNumber, string password)
         {
-            return View();
+            var newUser = new User()
+            {
+                FirstName = firstname,
+                LastName = lastname,
+                Email = email,
+                PhoneNumber = phoneNumber,
+                Password = password
+
+            };
+            return RedirectToAction("RegistrationComplete", newUser);
+        }
+
+        public ActionResult RegistrationComplete(User newUser)
+        {            
+            return View(newUser);
         }
     }
 }
