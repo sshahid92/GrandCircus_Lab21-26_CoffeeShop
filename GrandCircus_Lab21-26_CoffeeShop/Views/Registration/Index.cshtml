@@ -2,19 +2,47 @@
 @{
     ViewBag.Title = "Registration";
 }
-
+<script src="~/Scripts/Validate.js"></script>
 <h1>New User Registration</h1>
 <h3>Please fill out the form to register.</h3>
-<form method="post">
-    First Name:<br />
-    <input type="text" name="firstname" required><br />
-    Last Name:<br />
-    <input type="text" name="lastname" required><br />
-    Email:<br />
-    <input type="email" name="email" required><br />
-    Phone Number:<br />
-    <input type="tel" name="phoneNumber" required><br />
-    Password:<br />
-    <input type="password" name="password" required><br />
-    <input type="submit" value="Register">
+<form name="userInfo" method="post">
+    <fieldset>
+        <legend>Account Information</legend>
+        First Name:<br />
+        <input type="text" name="firstname" required><br />
+
+        Last Name:<br />
+        <input type="text" name="lastname" required><br />
+
+        Email:<br />
+        <input type="email" name="email" id="email" required><br />
+        <p id="emailMessage"></p>
+        Phone Number:<br />
+        <input type="tel" name="phoneNumber" id="phone" required><br />
+        <p id="phoneMessage"></p>
+        Password:<br />
+        <input type="password" name="password" required><br />
+
+        Birthday:<br />
+        <input type="date" name="bday"><br />
+
+        Gender:<br />
+        <input type="radio" name="gender" value="male"> Male
+        <input type="radio" name="gender" value="female"> Female
+        <input type="radio" name="gender" value="other" checked> Other <br />
+
+        <legend>Optional</legend>
+        What is your favorite coffee?<br />
+        <select name="coffee">
+            <option value="latte">Latte</option>
+            <option value="black">Black Coffee</option>
+            <option value="cappuccino">Cappuccino</option>
+            <option value="expresso">Expresso</option>
+            <option value="iced-coffee">Iced Coffee</option>
+            <option value="turkish-coffee">Turkish Coffee</option>
+        </select> <br />
+    </fieldset>
+    <input id="register" type="submit" value="Register">
 </form>
+
+
